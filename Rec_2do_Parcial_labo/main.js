@@ -160,7 +160,7 @@ async function ManejadorBtnAcceptar() {
 
         const id = document.getElementById('abm-form-id').value;
         const elementoModificado = ObtenerDatosModificacion();
-        RealizarConsultaModificacion(id, elementoModificado);
+        await RealizarConsultaModificacion(id, elementoModificado);
     }
 }
 
@@ -342,52 +342,48 @@ function ModificarElemento(index) {
     MostrarFormularioABM();
 }
 
-function RealizarConsultaModificacion(id, elementoModificado) {
+async function RealizarConsultaModificacion(id, elementoModificado) {
     const index = lista.findIndex((element) => element.id == id);
 
     if (index !== -1) {
         MostrarSpinner();
 
-        fetch(`https://examenesutn.vercel.app/api/PersonasHeroesVillanos`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(elementoModificado),
-        })
-            .then((response) => {
-                if (response.ok) {
-                    lista[index].nombre = elementoModificado.nombre;
-                    lista[index].apellido = elementoModificado.apellido;
-                    lista[index].edad = elementoModificado.edad;
+        try {
+            const response = await fetch(`https://examenesutn.vercel.app/api/PersonasHeroesVillanos`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(elementoModificado),
+            });
 
-                    if (elementoModificado instanceof Heroe) {
-                        lista[index].alterEgo = elementoModificado.alterEgo;
-                        lista[index].ciudad = elementoModificado.ciudad;
-                        lista[index].publicado = elementoModificado.publicado;
-                    } else {
-                        lista[index].enemigo = elementoModificado.enemigo;
-                        lista[index].robos = elementoModificado.robos;
-                        lista[index].asesinatos = elementoModificado.asesinatos;
-                    }
-                    UpdateTable(lista);
+            if (response.ok) {
+                lista[index].nombre = elementoModificado.nombre;
+                lista[index].apellido = elementoModificado.apellido;
+                lista[index].edad = elementoModificado.edad;
 
-                    OcultarFormularioABM();
-                    MostrarFormularioLista();
+                if (elementoModificado instanceof Heroe) {
+                    lista[index].alterEgo = elementoModificado.alterEgo;
+                    lista[index].ciudad = elementoModificado.ciudad;
+                    lista[index].publicado = elementoModificado.publicado;
                 } else {
-                    throw new Error('No se pudo realizar la operación');
+                    lista[index].enemigo = elementoModificado.enemigo;
+                    lista[index].robos = elementoModificado.robos;
+                    lista[index].asesinatos = elementoModificado.asesinatos;
                 }
-            })
-            .catch((error) => {
-                console.error(error);
+                UpdateTable(lista);
 
                 OcultarFormularioABM();
                 MostrarFormularioLista();
-                alert('No se pudo realizar la operación');
-            })
-            .finally(() => {
-                OcultarSpinner();
-            });
+            } else {
+                throw new Error('No se pudo realizar la operación');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('No se pudo realizar la operación');
+        } finally {
+            OcultarSpinner();
+        }
     } else {
         console.error('No se encontró el elemento con el ID especificado.');
     }
