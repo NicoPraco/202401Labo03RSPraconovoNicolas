@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modelo de Parcial | 2º Parcial</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="./img/icons/exam.png" />
+    </head>
+    <body>
+        <div id="contenedor-spinner">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="content-border">
+            <div class="main-content">
+                <div id="list-form">
+                    <header id="header-element">
+                        <h1 id="title">Formulario Datos</h1>
+                        <h2 id="name">Nicolás Praconovo</h2>
+                        <h3 id="subtitle">Recuperatorio Parcial | 2º Parcial</h3>
+                    </header>
+
+                    <main id="main-element">
+                        <table id="table-content">
+                            <thead id="table-headers">
+                                <tr>
+                                    <th id="id-header">Id</th>
+                                    <th id="name-header">Nombre</th>
+                                    <th id="surname-header">Apellido</th>
+                                    <th id="age-header">Edad</th>
+                                    <th id="alter-ego-header">Alter Ego</th>
+                                    <th id="city-header">Ciudad</th>
+                                    <th id="publish-header">Publicado</th>
+                                    <th id="enemigos-header">Enemigos</th>
+                                    <th id="robos-header">Robos</th>
+                                    <th id="asesinatos-header">Asesinatos</th>
+                                    <th id="modify-btn-header">--</th>
+                                    <th id="delete-btn-header">--</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="table-contents"></tbody>
+                        </table>
+                        <button id="add-btn" type="button">Agregar Elemento</button>
+                    </main>
+                </div>
+
+                <div id="abm-form" class="hidden">
+                    <h2 id="abm-form-title">Formulario ABM</h2>
+                    <h3 id="abm-form-action-title">A</h3>
+
+                    <div id="abm-form-elements">
+                        <label for="abm-form-id">Id</label>
+                        <input type="number" id="abm-form-id" readonly />
+
+                        <label for="abm-form-name">Nombre</label>
+                        <input type="text" id="abm-form-name" />
+
+                        <label for="abm-form-surname">Apellido</label>
+                        <input type="text" id="abm-form-surname" />
+
+                        <label for="abm-form-age">Edad</label>
+                        <input type="number" id="abm-form-age" />
+
+                        <label for="abm-form-type">Tipo</label>
+                        <select id="abm-form-type">
+                            <option value="Heroe" selected>Heroe</option>
+                            <option value="Villano">Villano</option>
+                        </select>
+
+                        <label for="abm-form-alter-ego" id="abm-form-lbl-alter-ego">Alter Ego</label>
+                        <input type="text" id="abm-form-alter-ego" />
+
+                        <label for="abm-form-city" id="abm-form-lbl-city">Ciudad</label>
+                        <input type="text" id="abm-form-city" />
+
+                        <label for="abm-form-publish" id="abm-form-lbl-publish">Publicado</label>
+                        <input type="number" id="abm-form-publish" min="1940" />
+
+                        <label for="abm-form-enemigo" id="abm-form-lbl-enemigo">Enemigo</label>
+                        <input type="text" id="abm-form-enemigo" />
+
+                        <label for="abm-form-robs" id="abm-form-lbl-robs">Robos</label>
+                        <input type="number" id="abm-form-robs" min="0" />
+
+                        <label for="abm-form-assasin" id="abm-form-lbl-assasin">Asesinatos</label>
+                        <input type="number" id="abm-form-assasin" min="0" />
+
+                        <button id="abm-form-accept">Aceptar</button>
+                        <button id="abm-form-cancel">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="clases/persona.js"></script>
+        <script type="module" src="clases/heroe.js"></script>
+        <script type="module" src="clases/villano.js"></script>
+
+        <!-- 
+        <script type="module" src="functions.js"></script> 
+        -->
+
+        <script type="module" src="main.js"></script>
+    </body>
+</html>

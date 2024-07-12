@@ -1,0 +1,180 @@
+:root {
+    /* color-scheme: light dark; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #c11e38, #9e0146, #75034a, #4a0b44, #220b34);
+
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#content-border {
+    height: 80%;
+    width: 80%;
+    margin-inline: auto;
+
+    border: 2px solid black;
+}
+
+/* HEADER */
+
+header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#header-div {
+    text-align: center;
+}
+
+#title {
+    font-style: italic;
+}
+
+#subtitle {
+    color: silver;
+}
+
+/* HEADER */
+
+/* MAIN CONTENT */
+
+.main-content {
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+#dropbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#media {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#show-table-columns {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#table {
+    margin: 10px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+
+    border-collapse: collapse;
+
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 2px solid black;
+    height: 20px;
+}
+
+#add-btn {
+    margin: 20px;
+    position: relative;
+}
+
+/* MAIN CONTENT */
+
+/* ABM FORMULARIO */
+
+.hidden {
+    display: none;
+}
+
+#abm-form {
+    width: 80%;
+    margin: auto;
+}
+
+#abm-form-title {
+    align-content: center;
+}
+
+#abm-form-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* ABM FORMULARIO */
+
+/* SPINNER */
+
+#contenedor-spinner {
+    background-color: rgba(250, 240, 245, 0.9);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    transition: all 1s ease;
+
+    z-index: 10000;
+}
+
+.spinner {
+    align-items: center;
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 100px;
+    width: 100px;
+    border: 15px solid #ccc;
+    border-top-color: #f4266a;
+    border-top-style: groove;
+    border-radius: 100%;
+
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* SPINNER */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
